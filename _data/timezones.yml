@@ -18,3 +18,43 @@
   identifier: Australia/Sydney
 - name: Dubai (GST)
   identifier: Asia/Dubai
+- name: Hong Kong (HKT)
+  identifier: Asia/Hong_Kong
+- name: Singapore (SGT)
+  identifier: Asia/Singapore
+- name: Moscow (MSK)
+  identifier: Europe/Moscow
+- name: Berlin (CET)
+  identifier: Europe/Berlin
+- name: Cape Town (SAST)
+  identifier: Africa/Johannesburg
+- name: Rio de Janeiro (BRT)
+  identifier: America/Sao_Paulo
+- name: New Delhi (IST)
+  identifier: Asia/Kolkata
+- name: Bangkok (ICT)
+  identifier: Asia/Bangkok
+- name: Auckland (NZDT)
+  identifier: Pacific/Auckland
+- name: Honolulu (HST)
+  identifier: Pacific/Honolulu
+- name: Anchorage (AKST)
+  identifier: America/Anchorage
+- name: Caracas (VET)
+  identifier: America/Caracas
+- name: Buenos Aires (ART)
+  identifier: America/Argentina/Buenos_Aires
+- name: Mexico City (CST)
+  identifier: America/Mexico_City
+- name: Vancouver (PST)
+  identifier: America/Vancouver
+- name: Manila (PST)
+  identifier: Asia/Manila
+- name: Seoul (KST)
+  identifier: Asia/Seoul
+- name: Tehran (IRST)
+  identifier: Asia/Tehran
+- name: Cairo (EET)
+  identifier: Africa/Cairo
+- name: Nairobi (EAT)
+  identifier: Africa/Nairobi

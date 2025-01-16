@@ -1,0 +1,67 @@
+---
+layout: default
+title: Time Zone Converter
+---
+
+<section class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold text-center text-[#2D9CDB]">Time Zone Converter</h1>
+  <p class="text-gray-700 text-center mt-4">Easily convert time zones to stay on schedule, no matter where your travels take you.</p>
+
+  <div class="bg-white shadow-md rounded-lg p-6 mt-8 max-w-md mx-auto">
+    <form id="time-zone-form">
+      <div class="mb-4">
+        <label for="from-time" class="block text-gray-700 font-medium">Your Local Time:</label>
+        <input type="time" id="from-time" name="from-time" class="w-full border-gray-300 rounded-md focus:ring-[#2D9CDB] focus:border-[#2D9CDB]">
+      </div>
+
+      <div class="mb-4">
+        <label for="from-zone" class="block text-gray-700 font-medium">Your Time Zone:</label>
+        <select id="from-zone" name="from-zone" class="w-full border-gray-300 rounded-md focus:ring-[#2D9CDB] focus:border-[#2D9CDB]">
+          <option value="UTC">UTC</option>
+          <option value="America/New_York">Eastern Time (ET)</option>
+          <option value="Europe/London">London (GMT)</option>
+          <!-- Add more time zones as needed -->
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label for="to-zone" class="block text-gray-700 font-medium">Convert To:</label>
+        <select id="to-zone" name="to-zone" class="w-full border-gray-300 rounded-md focus:ring-[#2D9CDB] focus:border-[#2D9CDB]">
+          <option value="UTC">UTC</option>
+          <option value="America/Los_Angeles">Pacific Time (PT)</option>
+          <option value="Asia/Tokyo">Tokyo (JST)</option>
+          <!-- Add more time zones as needed -->
+        </select>
+      </div>
+
+      <div class="text-center">
+        <button type="button" onclick="convertTime()" class="bg-[#2D9CDB] text-white px-4 py-2 rounded-md shadow hover:bg-[#1A7EB5]">Convert</button>
+      </div>
+    </form>
+
+    <div id="result" class="mt-6 text-center text-lg font-medium text-gray-800"></div>
+  </div>
+</section>
+
+<script>
+  function convertTime() {
+    const fromTime = document.getElementById('from-time').value;
+    const fromZone = document.getElementById('from-zone').value;
+    const toZone = document.getElementById('to-zone').value;
+
+    if (!fromTime) {
+      document.getElementById('result').innerText = 'Please enter a valid time.';
+      return;
+    }
+
+    const date = new Date(`1970-01-01T${fromTime}:00Z`);
+    const options = { timeZone: toZone, hour: '2-digit', minute: '2-digit', hour12: false };
+
+    try {
+      const convertedTime = new Intl.DateTimeFormat('en-US', options).format(date);
+      document.getElementById('result').innerText = `Converted Time: ${convertedTime}`;
+    } catch (error) {
+      document.getElementById('result').innerText = 'An error occurred. Please check your inputs.';
+    }
+  }
+</script>

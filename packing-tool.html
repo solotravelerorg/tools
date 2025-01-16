@@ -1,0 +1,71 @@
+---
+layout: default
+title: Packing Tool
+---
+
+<section class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold text-center text-[#2D9CDB]">Packing Tool</h1>
+  <p class="text-gray-700 text-center mt-4">Plan and customize your packing list to ensure you’re ready for any adventure.</p>
+
+  <div class="bg-white shadow-md rounded-lg p-6 mt-8 max-w-lg mx-auto">
+    <form id="packing-tool-form">
+      <div class="mb-4">
+        <label for="trip-type" class="block text-gray-700 font-medium">Trip Type:</label>
+        <select id="trip-type" name="trip-type" class="w-full border-gray-300 rounded-md focus:ring-[#2D9CDB] focus:border-[#2D9CDB]">
+          <option value="beach">Beach</option>
+          <option value="mountains">Mountains</option>
+          <option value="city">City</option>
+          <option value="international">International</option>
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label for="trip-duration" class="block text-gray-700 font-medium">Duration of Trip (in days):</label>
+        <input type="number" id="trip-duration" name="trip-duration" min="1" class="w-full border-gray-300 rounded-md focus:ring-[#2D9CDB] focus:border-[#2D9CDB]">
+      </div>
+
+      <div class="mb-4">
+        <label for="special-items" class="block text-gray-700 font-medium">Special Items (comma-separated):</label>
+        <input type="text" id="special-items" name="special-items" placeholder="e.g., hiking boots, sunscreen" class="w-full border-gray-300 rounded-md focus:ring-[#2D9CDB] focus:border-[#2D9CDB]">
+      </div>
+
+      <div class="text-center">
+        <button type="button" onclick="generatePackingList()" class="bg-[#2D9CDB] text-white px-4 py-2 rounded-md shadow hover:bg-[#1A7EB5]">Generate Packing List</button>
+      </div>
+    </form>
+
+    <div id="packing-list" class="mt-6 text-gray-800">
+      <!-- Generated packing list will appear here -->
+    </div>
+  </div>
+</section>
+
+<script>
+  function generatePackingList() {
+    const tripType = document.getElementById('trip-type').value;
+    const tripDuration = document.getElementById('trip-duration').value;
+    const specialItems = document.getElementById('special-items').value.split(',').map(item => item.trim()).filter(Boolean);
+
+    if (!tripDuration || tripDuration <= 0) {
+      document.getElementById('packing-list').innerHTML = '<p class="text-center text-red-500">Please enter a valid trip duration.</p>';
+      return;
+    }
+
+    const essentials = ['Clothing', 'Toiletries', 'Travel Documents', 'Phone and Charger'];
+    const typeSpecific = {
+      beach: ['Swimsuit', 'Beach Towel', 'Sunscreen'],
+      mountains: ['Hiking Boots', 'Warm Jacket', 'Flashlight'],
+      city: ['Comfortable Shoes', 'City Map', 'Light Jacket'],
+      international: ['Passport', 'Travel Adapter', 'Guidebook']
+    };
+
+    const packingList = [...essentials, ...typeSpecific[tripType], ...specialItems];
+
+    const listHtml = `<h2 class="text-xl font-bold text-center mt-4">Your Packing List</h2>
+      <ul class="list-disc mt-4 pl-6">
+        ${packingList.map(item => `<li>${item}</li>`).join('')}
+      </ul>`;
+
+    document.getElementById('packing-list').innerHTML = listHtml;
+  }
+</script>

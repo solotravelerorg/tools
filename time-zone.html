@@ -52,33 +52,19 @@ title: Time Zone Converter
       return;
     }
 
-    // Parse the input time
     const [hours, minutes] = fromTime.split(':').map(Number);
 
-    // Get the current date and time in the "fromZone"
+    // Create a Date object for the input time in the "fromZone"
     const now = new Date();
-    const dateInFromZone = new Date(
-      Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), hours, minutes)
-    );
+    const dateInFromZone = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), hours, minutes));
 
-    // Adjust for the fromZone offset
-    const optionsFromZone = { timeZone: fromZone };
-    const timeInFromZone = new Intl.DateTimeFormat('en-US', {
-      ...optionsFromZone,
-      hour: 'numeric',
-      minute: 'numeric',
-      hour12: false,
-    }).format(dateInFromZone);
-
-    const dateWithOffset = new Date(
-      Date.parse(`${now.toDateString()} ${timeInFromZone}`)
-    );
-
-    // Convert to the "toZone"
-    const optionsToZone = { timeZone: toZone, hour: '2-digit', minute: '2-digit', hour12: false };
-    const convertedTime = new Intl.DateTimeFormat('en-US', optionsToZone).format(dateWithOffset);
-
-    // Display the converted time
-    document.getElementById('result').innerText = `Converted Time: ${convertedTime}`;
+    // Convert the time from "fromZone" to "toZone"
+    try {
+      const optionsToZone = { timeZone: toZone, hour: '2-digit', minute: '2-digit', hour12: false };
+      const convertedTime = new Intl.DateTimeFormat('en-US', optionsToZone).format(dateInFromZone);
+      document.getElementById('result').innerText = `Converted Time: ${convertedTime}`;
+    } catch (error) {
+      document.getElementById('result').innerText = 'An error occurred. Please check your inputs.';
+    }
   }
 </script>

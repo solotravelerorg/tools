@@ -52,16 +52,23 @@ title: Time Zone Converter
       return;
     }
 
+    // Parse input time
     const [hours, minutes] = fromTime.split(':').map(Number);
+    const date = new Date();
+    date.setHours(hours, minutes, 0);
 
-    // Create a Date object for the input time in the "fromZone"
-    const now = new Date();
-    const dateInFromZone = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), hours, minutes));
-
-    // Convert the time from "fromZone" to "toZone"
     try {
-      const optionsToZone = { timeZone: toZone, hour: '2-digit', minute: '2-digit', hour12: false };
-      const convertedTime = new Intl.DateTimeFormat('en-US', optionsToZone).format(dateInFromZone);
+      // Convert from fromZone to UTC
+      const utcTime = new Date(date.toLocaleString('en-US', { timeZone: fromZone }));
+
+      // Convert UTC to toZone
+      const convertedTime = utcTime.toLocaleString('en-US', {
+        timeZone: toZone,
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+      });
+
       document.getElementById('result').innerText = `Converted Time: ${convertedTime}`;
     } catch (error) {
       document.getElementById('result').innerText = 'An error occurred. Please check your inputs.';

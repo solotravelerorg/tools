@@ -17,20 +17,18 @@ title: Time Zone Converter
       <div class="mb-4">
         <label for="from-zone" class="block text-gray-700 font-medium">Your Time Zone:</label>
         <select id="from-zone" name="from-zone" class="w-full border-gray-300 rounded-md focus:ring-[#2D9CDB] focus:border-[#2D9CDB]">
-          <option value="UTC">UTC</option>
-          <option value="America/New_York">Eastern Time (ET)</option>
-          <option value="Europe/London">London (GMT)</option>
-          <!-- Add more time zones as needed -->
+          {% for tz in site.data.timezones %}
+          <option value="{{ tz.identifier }}">{{ tz.name }}</option>
+          {% endfor %}
         </select>
       </div>
 
       <div class="mb-4">
         <label for="to-zone" class="block text-gray-700 font-medium">Convert To:</label>
         <select id="to-zone" name="to-zone" class="w-full border-gray-300 rounded-md focus:ring-[#2D9CDB] focus:border-[#2D9CDB]">
-          <option value="UTC">UTC</option>
-          <option value="America/Los_Angeles">Pacific Time (PT)</option>
-          <option value="Asia/Tokyo">Tokyo (JST)</option>
-          <!-- Add more time zones as needed -->
+          {% for tz in site.data.timezones %}
+          <option value="{{ tz.identifier }}">{{ tz.name }}</option>
+          {% endfor %}
         </select>
       </div>
 

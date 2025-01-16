@@ -52,14 +52,28 @@ title: Time Zone Converter
       return;
     }
 
-    const date = new Date(`1970-01-01T${fromTime}:00Z`);
-    const options = { timeZone: toZone, hour: '2-digit', minute: '2-digit', hour12: false };
+    // Parse the time input
+    const [hours, minutes] = fromTime.split(':').map(Number);
 
-    try {
-      const convertedTime = new Intl.DateTimeFormat('en-US', options).format(date);
-      document.getElementById('result').innerText = `Converted Time: ${convertedTime}`;
-    } catch (error) {
-      document.getElementById('result').innerText = 'An error occurred. Please check your inputs.';
-    }
+    // Create a Date object for the given time in the "fromZone"
+    const now = new Date();
+    const date = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), hours, minutes));
+
+    // Adjust the time to the "fromZone"
+    const fromZoneTime = new Intl.DateTimeFormat('en-US', {
+      timeZone: fromZone,
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+    }).formatToParts(date);
+
+    const convertedDate = new Date(date);
+
+    // Convert to the "toZone"
+    const options = { timeZone: toZone, hour: '2-digit', minute: '2-digit', hour12: false };
+    const convertedTime = new Intl.DateTimeFormat('en-US', options).format(convertedDate);
+
+    // Display the converted time
+    document.getElementById('result').innerText = `Converted Time: ${convertedTime}`;
   }
 </script>

@@ -1,0 +1,10 @@
+title: "SoloTraveler Tools"
+description: "Lightweight utilities for solo-first travel planning."
+url: ""
+baseurl: ""
+
+markdown: kramdown
+permalink: pretty
+
+# GitHub Pages safe defaults
+plugins: []

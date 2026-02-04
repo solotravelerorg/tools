@@ -1,0 +1,55 @@
+- id: time-zone-converter
+  title: Time Zone Converter
+  desc: Convert times between cities quickly, with travel-friendly formatting.
+  icon: "🕒"
+  status: Live
+  url: /tools/time-zone-converter/
+
+- id: packing-tool
+  title: Packing Tool
+  desc: Build a packing list that adapts to trip length, climate, and preferences.
+  icon: "🎒"
+  status: Live
+  url: /tools/packing-tool/
+
+- id: trip-budget-splitter
+  title: Trip Budget Splitter
+  desc: Split a total trip budget into daily and category targets.
+  icon: "💸"
+  status: Live
+  url: /tools/trip-budget-splitter/
+
+- id: solo-safety-checklist
+  title: Solo Safety Checklist
+  desc: A customizable checklist for transit, accommodation, and destination basics.
+  icon: "✅"
+  status: Live
+  url: /tools/solo-safety-checklist/
+
+- id: itinerary-sanity-check
+  title: Itinerary Sanity Check
+  desc: Spot overpacked days and missing buffer time using simple heuristics.
+  icon: "🗺️"
+  status: Live
+  url: /tools/itinerary-sanity-check/
+
+- id: carry-on-weight-helper
+  title: Carry-on Weight Helper
+  desc: Estimate pack weight and flag common surprise items.
+  icon: "⚖️"
+  status: Live
+  url: /tools/carry-on-weight-helper/
+
+- id: airport-buffer-calculator
+  title: Airport Buffer Calculator
+  desc: Compute when to leave based on flight time, transit and check-in needs.
+  icon: "✈️"
+  status: Live
+  url: /tools/airport-buffer-calculator/
+
+- id: checklist-builder
+  title: Checklist Builder
+  desc: Create reusable travel checklists for different trip types and seasons.
+  icon: "🧾"
+  status: Live
+  url: /tools/checklist-builder/

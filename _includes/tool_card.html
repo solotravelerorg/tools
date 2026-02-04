@@ -1,0 +1,12 @@
+<article class="tool-card" id="{{ tool.id }}">
+  <div class="tool-top">
+    <div class="tool-icon" aria-hidden="true">{{ tool.icon }}</div>
+    <span class="badge">{{ tool.status }}</span>
+  </div>
+  <h2 class="tool-card-title">{{ tool.title }}</h2>
+  <p class="tool-desc">{{ tool.desc }}</p>
+  <div class="tool-actions">
+    <a class="btn btn-primary" href="{{ tool.url | relative_url }}">Open</a>
+    <button class="btn" type="button" data-copy="{{ tool.id }}">Copy link</button>
+  </div>
+</article>

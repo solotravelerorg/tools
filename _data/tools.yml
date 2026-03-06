@@ -53,3 +53,17 @@
   icon: "🧾"
   status: Live
   url: /tools/checklist-builder/
+
+- id: passport-validity-checker
+  title: Passport Validity Checker
+  desc: Check whether your passport expiry date may meet common travel validity rules.
+  icon: "🛂"
+  status: Live
+  url: /tools/passport-validity-checker/
+
+- id: single-supplement-calculator
+  title: Single Supplement Calculator
+  desc: Calculate the extra cost and markup solo travelers pay on shared-price offers.
+  icon: "🧮"
+  status: Live
+  url: /tools/single-supplement-calculator/
